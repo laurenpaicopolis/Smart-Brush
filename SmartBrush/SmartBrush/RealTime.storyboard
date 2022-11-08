@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pcc-dM-rOc">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Real Time View Controller-->
+        <scene sceneID="u0f-yh-8Eb">
+            <objects>
+                <viewController id="Z5R-XD-koo" customClass="RealTimeViewController" customModule="SmartBrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G9H-eA-pvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYf-4o-5J2" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="155" width="374" height="519"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHZ-ou-z1A">
+                                        <rect key="frame" x="0.0" y="-44" width="374" height="563"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <segue destination="MlG-dM-7tR" kind="embed" id="mna-VK-tL7"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZx-Y5-s6d">
+                                <rect key="frame" x="20" y="83" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="fyF-jd-1N2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Please Connect Device"/>
+                                <connections>
+                                    <action selector="StartTimerPressed:" destination="Z5R-XD-koo" eventType="touchUpInside" id="mDc-9P-wWh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-Lh-66y">
+                                <rect key="frame" x="189.66666666666666" y="122" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qfc-pG-QO8"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="oYf-4o-5J2" firstAttribute="leading" secondItem="G9H-eA-pvQ" secondAttribute="leadingMargin" id="9Yf-29-rU4"/>
+                            <constraint firstItem="oYf-4o-5J2" firstAttribute="trailing" secondItem="G9H-eA-pvQ" secondAttribute="trailingMargin" id="L5m-qm-Ejq"/>
+                            <constraint firstItem="WZx-Y5-s6d" firstAttribute="top" secondItem="Qfc-pG-QO8" secondAttribute="top" constant="39" id="LUI-qW-rgH"/>
+                            <constraint firstItem="Qfc-pG-QO8" firstAttribute="bottom" secondItem="oYf-4o-5J2" secondAttribute="bottom" constant="13" id="UmZ-cW-sq4"/>
+                            <constraint firstItem="TxJ-Lh-66y" firstAttribute="top" secondItem="WZx-Y5-s6d" secondAttribute="bottom" constant="8" id="aHL-uh-i1H"/>
+                            <constraint firstItem="WZx-Y5-s6d" firstAttribute="leading" secondItem="Qfc-pG-QO8" secondAttribute="leading" constant="20" id="dnf-76-o0H"/>
+                            <constraint firstItem="TxJ-Lh-66y" firstAttribute="centerX" secondItem="WZx-Y5-s6d" secondAttribute="centerX" id="fHX-C2-XVI"/>
+                            <constraint firstItem="oYf-4o-5J2" firstAttribute="top" secondItem="WZx-Y5-s6d" secondAttribute="bottom" constant="41" id="slL-Cn-zzc"/>
+                            <constraint firstItem="WZx-Y5-s6d" firstAttribute="centerX" secondItem="oYf-4o-5J2" secondAttribute="centerX" id="tsV-RV-6l8"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kQI-M5-iTS"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="barChartView" destination="oYf-4o-5J2" id="fS3-cW-ewd"/>
+                        <outlet property="statusButton" destination="WZx-Y5-s6d" id="yZL-A8-QJc"/>
+                        <outlet property="timerLabel" destination="TxJ-Lh-66y" id="MNt-MW-9kI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N47-aL-a8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2534.7826086956525" y="466.304347826087"/>
+        </scene>
+        <!--SwiftUI View Hosting Controller-->
+        <scene sceneID="8lH-0U-mCn">
+            <objects>
+                <hostingController id="MlG-dM-7tR" customClass="SwiftUIViewHostingController" customModule="SmartBrush" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czR-Cz-jnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3386" y="772"/>
+        </scene>
+        <!--Real Time-->
+        <scene sceneID="LFh-Aj-Ma1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcc-dM-rOc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Real Time" id="bsX-qT-sCZ">
+                        <imageReference key="image" image="timer" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MyE-cd-8x2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z5R-XD-koo" kind="relationship" relationship="rootViewController" id="qIL-kO-T10"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFM-wa-3hs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757.9710144927537" y="87.228260869565219"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="timer" catalog="system" width="128" height="121"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

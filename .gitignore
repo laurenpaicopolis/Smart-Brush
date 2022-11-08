@@ -1,0 +1,8 @@
+# ignore the user settings of the app
+*.xcuserstate
+SmartBrush/SmartBrush.xcodeproj/project.xcworkspace/xcuserdata/**
+SmartBrush/SmartBrush.xcodeproj/xcuserdata/**
+SmartBrush/Pods/Pods.xcodeproj/xcuserdata/**
+
+# ignore local ds files
+.DS_Store

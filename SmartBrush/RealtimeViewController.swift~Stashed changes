@@ -1,0 +1,69 @@
+//
+//  RealTimeUI.swift
+//  SmartBrush
+//
+//  Created by Jakob Walburger on 10/23/21.
+//
+
+// The buttons are just for testing/proof of concept
+
+import SwiftUI
+
+class UserAuthentication: ObservableObject {
+    var x = 0.5 {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+}
+
+struct RealTimeUI: View {
+    @StateObject var value = UserAuthentication()
+    
+    var body: some View {
+        ZStack {
+            Color.orange.ignoresSafeArea(.all)
+            VStack {
+            Rectangle()
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [Color.black, Color.green]),
+
+                    startPoint: UnitPoint(x: 0, y: 0),
+
+                    endPoint: UnitPoint(x: 0, y: value.x)
+                ))
+                .frame(width: 100, height: 400)
+            
+                HStack{
+                    Button(action: {
+                        print(value.x)
+                        value.x = value.x + 0.05
+                    }) {
+                        Text("-")
+                    }
+                    Button(action: {
+                        print(value.x)
+                        
+                        value.x = value.x - 0.05
+                    }) {
+                        Text("+")
+                    }
+                }
+            }
+            
+        }
+        
+    }
+}
+ 
+struct RealTimeUI_Previews: PreviewProvider {
+    static var previews: some View {
+        RealTimeUI()
+    }
+}
+
+class SwiftUIViewHostingController: UIHostingController<RealTimeUI> {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder, rootView: RealTimeUI())
+    }
+}
